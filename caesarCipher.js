@@ -1,14 +1,22 @@
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 const args = process.argv.slice(2);
 
+// Formatting helpers and shared usage text
+const BOLD = '\x1b[1m';
+const RESET = '\x1b[0m';
+function printUsage() {
+  console.log(`Usage: node caesarCipher.js "your phrase" <shift>`);
+  console.log(`${BOLD}Note:${RESET} wrap the phrase in double quotes if it contains spaces.`);
+}
+
 if (args[0] === '--help' || args[0] === '-h') {
-  console.log('Usage: node caesarCipherArray.js "your phrase" <shift>');
+  printUsage();
   process.exit(0);
 }
 
 if (args.length < 2) {
   console.error('❌ Not enough arguments.');
-  console.log('Usage: node caesarCipherArray.js "your phrase" <shift>');
+  printUsage();
   process.exit(1);
 }
 
