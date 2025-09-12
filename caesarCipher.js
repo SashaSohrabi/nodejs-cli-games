@@ -38,7 +38,7 @@ function shiftLetter(ch, shift) {
 
   if (idx === -1) return ch;
 
-  const newIdx = (idx + shift + 26) % 26;
+  const newIdx = (idx + shift + alphabet.length) % alphabet.length;
   const newChar = alphabet[newIdx];
 
   return ch === lower ? newChar : newChar.toUpperCase();
